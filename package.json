@@ -1,0 +1,34 @@
+{
+  "name": "movies-library-manager",
+  "description": "Tiny movies library manager created by using React framework",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "browserify": "browserify dist/public/index.js > dist/public/bundle.js",
+    "compile": "npm run transpiler && npm run browserify && npm run copy",
+    "copy": "cpx \"src/assets/**/*.{css,js,map,png}\" dist/public/assets",
+    "dev": "npm run compile && nodemon --inspect dist/index.js",
+    "fix": "./node_modules/.bin/eslint \"src/**/*.{js,jsx}\" --fix",
+    "lint": "./node_modules/.bin/eslint \"src/**/*.{js,jsx}\"",
+    "start": "npm run compile && npm run minifier-web && node dist/index.js",
+    "minifier-web": "node node_modules/html-minifier/cli.js -c minifier.json --file-ext html --input-dir src/web --output-dir dist/public",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "transpiler": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FabioAnsaldi/movies-library-manager.git"
+  },
+  "keywords": [
+    "React",
+    "Express",
+    "JavaScript",
+    "NodeJS"
+  ],
+  "author": "Fabio Ansaldi",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/FabioAnsaldi/movies-library-manager/issues"
+  },
+  "homepage": "https://github.com/FabioAnsaldi/movies-library-manager#readme"
+}
