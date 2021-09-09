@@ -46,6 +46,7 @@ After that you can run the environment mode with a specific setup.
 
 > APPLICATION_ADDRESS         : Local application IP or hostname
 > APPLICATION_PORT            : Local application PORT
+> APPLICATION_API_CONTEXT     : Application APIs context.
 > APPLICATION_VERSION         : Application version
 > DATA_SOURCE_ADDRESS         : Local or external movie data source IP or hostname
 > DATA_SOURCE_CREDENTIALS_KEY : Local or external movie data source credentials key

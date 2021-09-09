@@ -1,0 +1,21 @@
+{
+    "verbose": true,
+    "ignore": [
+        ".babelrc",
+        ".env",
+        ".git",
+        ".gitignore",
+        "node_modules/**/node_modules",
+        "dist"
+      ],
+      "watch": [
+        "src/public"
+      ],
+      "events": {
+        "restart": "npm run transpiler && npm run browserify"
+      },
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "ext": "js,html"
+  }
