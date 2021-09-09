@@ -1,0 +1,153 @@
+// General classes structure
+//
+
+////////////////////////////////////////////////////////////////////////////
+// Colors
+
+$colorClass: ".color";
+$colorKey: "black", "success", "error", "warning", "info", "white", "primary", "secondary", "primary-hover", "secondary-hover";
+
+#{$colorClass} {
+
+	@each $key in $colorKey {
+		&-#{$key} {
+			color: unquote( map-get($colors, $key) );
+		}
+    }
+}
+
+$bgColorClass: ".backgroundColor";
+
+#{$bgColorClass} {
+
+	@each $key in $colorKey {
+		&-#{$key} {
+			background-color: unquote( map-get($colors, $key) );
+		}
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////
+// height
+
+$height: ".height";
+$heightKey: "auto", "inherit", "full";
+
+#{$height} {
+
+	@each $key in $heightKey {
+		&-#{$key} {
+			height: map-get($heights, $key);
+		}
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////
+// width
+
+$width: ".width";
+$widthKey: "auto", "inherit", "half", "full";
+
+#{$width} {
+
+	@each $key in $widthKey {
+		&-#{$key} {
+			width: map-get($widths, $key);
+		}
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////
+// flexGrows
+
+$flexGrow: ".flexGrow";
+$flexGrowKey: 0, 1, 2, 3, 4, 5;
+
+#{$flexGrow} {
+
+	@each $key in $flexGrowKey {
+		&-#{$key} {
+			flex-grow: $key;
+		}
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+// Paddings
+
+$padding: ".padding";
+$paddingKey: "auto", "0", "1", "2", "3", "4", "5";
+
+#{$padding} {
+
+	@each $key in $paddingKey {
+		&-#{$key} {
+			padding: map-get($gutter, $key);
+		}
+    }
+
+	@each $key in $paddingKey {
+		&Bottom-#{$key} {
+			padding-bottom: map-get($gutter, $key);
+		}
+    }
+
+	@each $key in $paddingKey {
+		&Top-#{$key} {
+			padding-top: map-get($gutter, $key);
+		}
+    }
+
+	@each $key in $paddingKey {
+		&Left-#{$key} {
+			padding-left: map-get($gutter, $key);
+		}
+    }
+
+	@each $key in $paddingKey {
+		&Right-#{$key} {
+			padding-right: map-get($gutter, $key);
+		}
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+// Margins
+
+$margin: ".margin";
+$marginKey: "auto", "0", "1", "2", "3", "4", "5";
+
+#{$margin} {
+
+	@each $key in $marginKey {
+		&-#{$key} {
+			margin: map-get($gutter, $key);
+		}
+    }
+
+	@each $key in $marginKey {
+		&Bottom-#{$key} {
+			margin-bottom: map-get($gutter, $key);
+		}
+    }
+
+	@each $key in $marginKey {
+		&Top-#{$key} {
+			margin-top: map-get($gutter, $key);
+		}
+    }
+
+	@each $key in $marginKey {
+		&Left-#{$key} {
+			margin-left: map-get($gutter, $key);
+		}
+    }
+
+	@each $key in $marginKey {
+		&Right-#{$key} {
+			margin-right: map-get($gutter, $key);
+		}
+    }
+}
