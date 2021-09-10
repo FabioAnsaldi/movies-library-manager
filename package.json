@@ -14,7 +14,8 @@
     "lint": "./node_modules/.bin/eslint \"src/**/*.{js,jsx}\"",
     "sass:expanded": "./node_modules/.bin/node-sass src/public/styles/base.scss -o dist/public/ --source-map-embed",
     "sass:compressed": "./node_modules/.bin/node-sass src/public/styles/base.scss -o dist/public/ --output-style compressed",
-    "start": "npm run compile && npm run sass:compressed && npm run minifier-web && node dist/server/index.js",
+    "start": "npm run compile && npm run minifier && npm run sass:compressed && npm run minifier-web && node dist/server/index.js",
+    "minifier": "./node_modules/.bin/minify dist/public/bundle.js --out-file dist/public/bundle.min.js --mangle.keepClassName",
     "minifier-web": "node node_modules/html-minifier/cli.js -c minifier.json --file-ext html --input-dir src/public --output-dir dist/public",
     "test": "echo \"Error: no test specified\" && exit 1",
     "transpiler": "babel src --out-dir dist --source-maps inline"
@@ -50,6 +51,7 @@
     "@babel/preset-react": "^7.14.5",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
+    "babel-minify": "^0.5.1",
     "browserify": "^17.0.0",
     "cpx": "^1.5.0",
     "eslint": "^7.32.0",

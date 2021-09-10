@@ -5,13 +5,13 @@
 // Colors
 
 $colorClass: ".color";
-$colorKey: "black", "success", "error", "warning", "info", "white", "primary", "secondary", "primary-hover", "secondary-hover";
+$colorKey: "black", "success", "error", "warning", "info", "white", "primary", "secondary";
 
 #{$colorClass} {
 
 	@each $key in $colorKey {
 		&-#{$key} {
-			color: unquote( map-get($colors, $key) );
+			color: map-get($colors, $key);
 		}
     }
 }
@@ -22,7 +22,7 @@ $bgColorClass: ".backgroundColor";
 
 	@each $key in $colorKey {
 		&-#{$key} {
-			background-color: unquote( map-get($colors, $key) );
+			background-color: map-get($colors, $key);
 		}
     }
 }
@@ -148,6 +148,67 @@ $marginKey: "auto", "0", "1", "2", "3", "4", "5";
 	@each $key in $marginKey {
 		&Right-#{$key} {
 			margin-right: map-get($gutter, $key);
+		}
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+// Buttons
+
+@function hover-clr($color) {
+	@if (lightness($color) > 50) {
+		@return darken($color, 12%);
+	} @else {
+		@return lighten($color, 12%);
+	}
+}
+
+@function active-clr($color) {
+	@if (lightness($color) > 50) {
+		@return darken($color, 16%);
+	} @else {
+		@return lighten($color, 16%);
+	}
+}
+
+@mixin button-bg($bg) {
+	background: $bg;
+	&:hover {
+	  background: hover-clr($bg);
+	  transition: all 0.3s ease;
+	  cursor: pointer;
+	}
+	&:active {
+	  background: active-clr($bg);
+	}
+}
+
+$button: ".btn";
+$buttonTextKey: "1", "2", "3";
+$buttonKey: "success", "error", "warning", "info", "white", "black", "primary", "secondary";
+
+#{$button} {
+
+	@each $key in $buttonTextKey {
+		&-#{$key} {
+			color: $color-white;
+			text-decoration: none;
+			padding: map-get($gutter, $key)/2 map-get($gutter, $key);
+			border-radius: map-get($gutter, $key)/2;
+			font-size: map-get($gutter, $key);
+			font-weight: 400;
+			font-stretch: normal;
+			font-family: Arial;
+			line-height: normal;
+			appearance: auto;
+			border: none;
+		}
+    }
+
+	@each $key in $buttonKey {
+		&-#{$key} {
+			@include button-bg( map-get($colors, $key) );
 		}
     }
 }

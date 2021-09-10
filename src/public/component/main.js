@@ -13,7 +13,7 @@ class Main extends React.Component {
 	render() {
         
 		return (
-			<main>
+			<main className="margin-2">
 				{this.props.children}
 			</main>
 		)

@@ -18,6 +18,9 @@ $color-gray1: #EBEFF2;
 $color-gray2: #E3E8ED;
 $color-gray16: #23343F;
 $color-gray19: #0C1419;
+// Theme Pallette
+$color-primary: $color-gray16;
+$color-secondary: $color-gray19;
 
 $colors: (
   "black": $color-black,
@@ -26,9 +29,8 @@ $colors: (
   "warning": $color-warning,
   "info": $color-info,
   "white": $color-white,
-  "primary": $color-gray1,
-  "primary-hover": $color-gray16,
-  "secondary-hover": $color-gray19
+  "primary": $color-primary,
+  "secondary": $color-secondary
 ) !default;
 
 //-- Colors:end --//

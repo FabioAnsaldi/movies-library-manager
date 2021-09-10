@@ -5,7 +5,7 @@ class Footer extends React.Component {
 	render() {
         
 		return (
-			<footer>
+			<footer className="margin-2">
 				<nav>
 					<ul className="nav-container">
 						<li className="nav-item">
