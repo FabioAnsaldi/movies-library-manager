@@ -45,10 +45,15 @@ After that you can run the environment mode with a specific setup.
 #### About .env configuration ####
 
 > APPLICATION_ADDRESS         : Local application IP or hostname
+
 > APPLICATION_PORT            : Local application PORT
-> APPLICATION_API_CONTEXT     : Application APIs context.
+
+> APPLICATION_API_CONTEXT     : Application APIs context
+
 > APPLICATION_VERSION         : Application version
+
 > DATA_SOURCE_ADDRESS         : Local or external movie data source IP or hostname
+
 > DATA_SOURCE_CREDENTIALS_KEY : Local or external movie data source credentials key
 
 #### Development mode ####
@@ -57,14 +62,20 @@ After that you can run the environment mode with a specific setup.
 npm run dev
 ```
 > It runs developing environment.
-If you want you can change application APPLICATION_PORT, you can edit `.env` file properly and watch result at specific local URL: http://localhost:[APPLICATION_PORT]/
+If you want you can change application APPLICATION_PORT, you can edit `.env` file properly and watch result at specific local URL:
+```shell
+http://localhost:[APPLICATION_PORT]/
+```
 
 #### Production mode ####
 
 ```shell
 npm run start
 ```
-> In the same way you can edit `.env` file and change APPLICATION_ADDRESS to run the application on production environment: http://[APPLICATION_ADDRESS]:[APPLICATION_PORT]/
+> In the same way you can edit `.env` file and change APPLICATION_ADDRESS to run the application on production environment: 
+```shell
+http://[APPLICATION_ADDRESS]:[APPLICATION_PORT]/
+```
 
 ### Best practice ###
 
