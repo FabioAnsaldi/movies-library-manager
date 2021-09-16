@@ -1,0 +1,134 @@
+// General classes structure
+//
+
+////////////////////////////////////////////////////////////////////////////
+// Navs
+
+nav {
+    display: flex;
+
+    .nav-brand {
+        display: inline-flex;
+    }
+    .nav-hamburger {
+        display: none;
+
+        @include respond-to('small') {
+            display: inline-flex;
+            margin-left: auto;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .hamburger { 
+            display: block;
+            background: $color-default;
+            width: 100%;
+            height: 100%; 
+            position: relative; 
+            margin-left: auto; margin-right: auto;
+            border-radius: 0.2em; 
+            transition: border-radius .5s;
+
+            &.checked {
+                .line:nth-child(1) {
+                    transform: translateY( 3/2*map-get($gutter, "1") ) rotate(-45deg);
+                }
+                .line:nth-child(2) {
+                    opacity:0;
+                }
+                .line:nth-child(3) {
+                    transform: translateY( -3/2*map-get($gutter, "1") ) rotate(45deg);
+                }
+            }
+         } 
+        .line {
+            position: absolute; 
+            left: 10%;
+            height: 4px;
+            width: 80%; 
+            background: $color-primary;
+            border-radius: 0.2em;
+            display: block; 
+            transition: 0.5s; 
+            transform-origin: center; 
+        }
+        .line:nth-child(1) {
+             top: 23%;
+        }
+         .line:nth-child(2) {
+             top: 48%;
+        }
+         .line:nth-child(3) {
+             top: 73%;
+        }
+    }
+    .nav-container {
+        display: inline-flex;
+
+        &.nav-mobile {
+            @include respond-to('small') {
+                display: block;
+                position: absolute;
+                background-color: $color-primary;
+                margin: 0 auto;
+                top: 5*map-get($gutter, "2");
+                right: 0;
+                z-index: 99;
+                width: 100%;
+                transform-origin: 0% 0%;
+                transform: translate(100%, 0);
+                transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+                &.checked {
+                    transform: translate(0, 0);
+                }
+            }
+
+            .nav-item {
+                display: inline-flex;
+                align-items: center;
+    
+                @include respond-to('small') {
+                    display: flex;
+                }
+            }
+
+            .nav-link {
+                @include respond-to('small') {
+                    width: 100%;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+
+        .nav-item {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            cursor: pointer;
+            color: $color-default;
+            min-width: 3em;
+            text-align: center;
+
+            &.active {
+                background: $color-default;
+                cursor: pointer;
+                color: $color-primary;
+            }
+            &:hover {
+                background: $color-default;
+                cursor: pointer;
+                color: $color-primary;
+            }
+            &:active {
+                background: $color-default;
+                cursor: pointer;
+                color: $color-primary;
+            }
+        }
+    }
+}

@@ -5,11 +5,11 @@ class Footer extends React.Component {
 	render() {
         
 		return (
-			<footer className="margin-2">
+			<footer className="padding-2 position-absolute bgColor-primary bottom-0">
 				<nav>
 					<ul className="nav-container">
 						<li className="nav-item">
-							<a className="nav-link active" href="https://www.linkedin.com/in/fabio-ansaldi-08397510a/" target="_blank" rel="noreferrer">Fabio Ansaldi</a>
+							powered by&nbsp;<a className="nav-link" href="https://www.linkedin.com/in/fabio-ansaldi-08397510a/" target="_blank" rel="noreferrer">Fabio Ansaldi</a>
 						</li>
 					</ul>
 				</nav>

@@ -14,13 +14,34 @@ $color-warning: #f0541e;
 $color-info: #63c0df;
 $color-white: #FFFFFF;
 //https://medium.com/ge-design/iot-cool-gray-is-a-great-background-color-for-data-visualization-ebf18c318418
-$color-gray1: #EBEFF2;
 $color-gray2: #E3E8ED;
-$color-gray16: #23343F;
-$color-gray19: #0C1419;
+$color-gray4: #C5D1D8;
+$color-gray14: #364C59;
+$color-gray18: #121F26;
 // Theme Pallette
-$color-primary: $color-gray16;
-$color-secondary: $color-gray19;
+$color-primary: $color-gray2;
+$color-secondary: $color-gray4;
+$color-default: $color-gray14;
+$color-dark: $color-gray18;
+
+
+////////////////////////////////////////////////////////////////////////////
+// Breakpoints
+
+//-- Breakpoints:start --//
+
+$breakpoints: (
+  'small':  767px,
+  'medium': 992px,
+  'large':  1200px
+) !default;
+
+//-- Breakpoints:end --//
+
+////////////////////////////////////////////////////////////////////////////
+// Colors
+
+//-- Colors:start --//
 
 $colors: (
   "black": $color-black,
@@ -30,7 +51,9 @@ $colors: (
   "info": $color-info,
   "white": $color-white,
   "primary": $color-primary,
-  "secondary": $color-secondary
+  "secondary": $color-secondary,
+  "dark": $color-dark,
+  "default": $color-default
 ) !default;
 
 //-- Colors:end --//
@@ -51,6 +74,20 @@ $gutter: (
 ) !default;
 
 //-- Gutter:end --//
+
+////////////////////////////////////////////////////////////////////////////
+// Overflow
+
+//-- Overflows:start --//
+
+$overflows: (
+  "auto": auto,
+  "hidden": hidden,
+  "scroll": scroll,
+) !default;
+
+//-- Overflows:end --//
+
 
 ////////////////////////////////////////////////////////////////////////////
 // Heights
@@ -76,6 +113,27 @@ $widths: (
   "inherit": "inherit",
   "half": 50%,
   "full": #{"100%; width: -moz-available; width: stretch;"},
+  "0": 0,
+  "1": 8px,
+  "2": 16px,
+  "3": 24px,
+  "4": 32px,
+  "5": 40px,
+  "6": 48px,
 ) !default;
 
 //-- Widths:end --//
+
+////////////////////////////////////////////////////////////////////////////
+// Widths
+
+//-- Positions:start --//
+
+$positions: (
+  "static": #{"static; left: 0; right: 0; margin: auto;"},
+  "absolute": #{"absolute; left: 0; right: 0; margin: auto;"},
+  "relative": #{"relative; left: 0; right: 0; margin: auto;"},
+  "fixed": #{"fixed; left: 0; right: 0; margin: auto;"},
+) !default;
+
+//-- Positions:end --//

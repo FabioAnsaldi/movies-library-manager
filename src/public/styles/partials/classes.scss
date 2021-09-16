@@ -5,7 +5,7 @@
 // Colors
 
 $colorClass: ".color";
-$colorKey: "black", "success", "error", "warning", "info", "white", "primary", "secondary";
+$colorKey: "black", "success", "error", "warning", "info", "white", "primary", "secondary", "default", "dark";
 
 #{$colorClass} {
 
@@ -16,13 +16,28 @@ $colorKey: "black", "success", "error", "warning", "info", "white", "primary", "
     }
 }
 
-$bgColorClass: ".backgroundColor";
+$bgColorClass: ".bgColor";
 
 #{$bgColorClass} {
 
 	@each $key in $colorKey {
 		&-#{$key} {
 			background-color: map-get($colors, $key);
+		}
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////
+// height
+
+$overflow: ".overflow";
+$overflowKey: "auto", "hidden", "scroll";
+
+#{$overflow} {
+
+	@each $key in $overflowKey {
+		&-#{$key} {
+			overflow: map-get($overflows, $key);
 		}
     }
 }
@@ -46,13 +61,29 @@ $heightKey: "auto", "inherit", "full";
 // width
 
 $width: ".width";
-$widthKey: "auto", "inherit", "half", "full";
+$widthKey: "auto", "inherit", "half", "full", "0", "1", "2", "3", "4", "5", "6";
 
 #{$width} {
 
 	@each $key in $widthKey {
 		&-#{$key} {
 			width: map-get($widths, $key);
+		}
+    }
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+// positions
+
+$position: ".position";
+$positionKey: "static", "absolute", "relative", "fixed";
+
+#{$position} {
+
+	@each $key in $positionKey {
+		&-#{$key} {
+			position: map-get($positions, $key);
 		}
     }
 }
@@ -72,85 +103,82 @@ $flexGrowKey: 0, 1, 2, 3, 4, 5;
     }
 }
 
+/// Mixin to manage button background color
+/// @param {String} $property - property name
+/// @param {String} $keys - property key
+/// @param {String} $variables - variables property key
+/// @require map-get
+@mixin property-cicle($property, $keys, $variables) {
+	.#{$property} {
+		@each $key in $keys {
+			&-#{$key} {
+				#{$property}: map-get($variables, $key);
+			}
+		}
+	}
+}
 
 ////////////////////////////////////////////////////////////////////////////
 // Paddings
 
-$padding: ".padding";
 $paddingKey: "auto", "0", "1", "2", "3", "4", "5";
 
-#{$padding} {
+@include property-cicle( 'padding', $paddingKey, $gutter );
 
-	@each $key in $paddingKey {
-		&-#{$key} {
-			padding: map-get($gutter, $key);
-		}
-    }
+@include property-cicle( 'padding-bottom', $paddingKey, $gutter );
 
-	@each $key in $paddingKey {
-		&Bottom-#{$key} {
-			padding-bottom: map-get($gutter, $key);
-		}
-    }
+@include property-cicle( 'padding-top', $paddingKey, $gutter );
 
-	@each $key in $paddingKey {
-		&Top-#{$key} {
-			padding-top: map-get($gutter, $key);
-		}
-    }
+@include property-cicle( 'padding-left', $paddingKey, $gutter );
 
-	@each $key in $paddingKey {
-		&Left-#{$key} {
-			padding-left: map-get($gutter, $key);
-		}
-    }
-
-	@each $key in $paddingKey {
-		&Right-#{$key} {
-			padding-right: map-get($gutter, $key);
-		}
-    }
-}
-
+@include property-cicle( 'padding-right', $paddingKey, $gutter );
 
 ////////////////////////////////////////////////////////////////////////////
 // Margins
 
-$margin: ".margin";
 $marginKey: "auto", "0", "1", "2", "3", "4", "5";
 
-#{$margin} {
+@include property-cicle( 'margin', $marginKey, $gutter );
 
-	@each $key in $marginKey {
-		&-#{$key} {
-			margin: map-get($gutter, $key);
-		}
-    }
+@include property-cicle( 'margin-bottom', $marginKey, $gutter );
 
-	@each $key in $marginKey {
-		&Bottom-#{$key} {
-			margin-bottom: map-get($gutter, $key);
-		}
-    }
+@include property-cicle( 'margin-top', $marginKey, $gutter );
 
-	@each $key in $marginKey {
-		&Top-#{$key} {
-			margin-top: map-get($gutter, $key);
-		}
-    }
+@include property-cicle( 'margin-left', $marginKey, $gutter );
 
-	@each $key in $marginKey {
-		&Left-#{$key} {
-			margin-left: map-get($gutter, $key);
-		}
-    }
+@include property-cicle( 'margin-right', $marginKey, $gutter );
 
-	@each $key in $marginKey {
-		&Right-#{$key} {
-			margin-right: map-get($gutter, $key);
-		}
-    }
-}
+
+////////////////////////////////////////////////////////////////////////////
+// Bottoms
+
+$bottomKey: "auto", "0", "1", "2", "3", "4", "5";
+
+@include property-cicle( 'bottom', $bottomKey, $gutter );
+
+
+////////////////////////////////////////////////////////////////////////////
+// Tops
+
+$topKey: "auto", "0", "1", "2", "3", "4", "5";
+
+@include property-cicle( 'top', $topKey, $gutter );
+
+
+////////////////////////////////////////////////////////////////////////////
+// Lefts
+
+$leftKey: "auto", "0", "1", "2", "3", "4", "5";
+
+@include property-cicle( 'left', $leftKey, $gutter );
+
+
+////////////////////////////////////////////////////////////////////////////
+// Rigts
+
+$rightKey: "auto", "0", "1", "2", "3", "4", "5";
+
+@include property-cicle( 'right', $rightKey, $gutter );
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -172,7 +200,23 @@ $marginKey: "auto", "0", "1", "2", "3", "4", "5";
 	}
 }
 
-@mixin button-bg($bg) {
+@function text-clr($key) {
+	@if ($key == "primary") {
+		@return $color-gray14;
+	} @if ($key == "secondary") {
+		@return $color-gray18;
+	} @else {
+		@return $color-white;
+	}
+}
+
+/// Mixin to manage button background color
+/// @param {String} $bg - background color name
+/// @param {String} $key - key color
+/// @require hover-clr
+/// @require active-clr
+@mixin button-bg($bg, $key) {
+	color: text-clr($key);
 	background: $bg;
 	&:hover {
 	  background: hover-clr($bg);
@@ -194,6 +238,7 @@ $buttonKey: "success", "error", "warning", "info", "white", "black", "primary", 
 		&-#{$key} {
 			color: $color-white;
 			text-decoration: none;
+			letter-spacing: map-get($gutter, $key)/32;
 			padding: map-get($gutter, $key)/2 map-get($gutter, $key);
 			border-radius: map-get($gutter, $key)/2;
 			font-size: map-get($gutter, $key);
@@ -208,7 +253,26 @@ $buttonKey: "success", "error", "warning", "info", "white", "black", "primary", 
 
 	@each $key in $buttonKey {
 		&-#{$key} {
-			@include button-bg( map-get($colors, $key) );
+			@include button-bg( map-get($colors, $key), $key );
 		}
     }
+}
+
+
+/// Mixin to manage responsive breakpoints
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+	// If the key exists in the map
+	@if map-has-key($breakpoints, $breakpoint) {
+	  // Prints a media query based on the value
+	  @media (max-width: map-get($breakpoints, $breakpoint)) {
+		@content;
+	  }
+	}
+	// If the key doesn't exist in the map
+	@else {
+	  @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+		  + "Available breakpoints are: #{map-keys($breakpoints)}.";
+	}
 }

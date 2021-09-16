@@ -5,17 +5,27 @@ class Header extends React.Component {
 	render() {
         
 		return (
-			<header className="margin-2">
+			<header className="padding-2 bgColor-primary">
 				<nav>
-					<ul className="nav-container">
+					<div className="nav-brand width-6 margin-right-2">
+						<img src="/assets/logo.svg" alt="logo" />
+					</div>
+					<div className="nav-hamburger width-6">
+							<div className="hamburger">
+								<span className="line"></span>
+								<span className="line"></span>
+								<span className="line"></span>
+							</div>
+					</div>
+					<ul className="nav-container nav-mobile">
 						<li className="nav-item">
-							<a className="nav-link active btn-1 btn-success" href="/">Home</a>
+							<a className="nav-link padding-1 active" href="/">Home</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link active btn-1 btn-error" href="/">Home</a>
+							<a className="nav-link padding-1" href="/">Test</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link active btn-1 btn-info" href="/">Home</a>
+							<a className="nav-link padding-1" href="/">About</a>
 						</li>
 					</ul>
 				</nav>

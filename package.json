@@ -7,7 +7,7 @@
   "scripts": {
     "browserify": "browserify --debug dist/public/index.js > dist/public/bundle.js",
     "compile": "npm run transpiler && npm run browserify && npm run copy:assets && npm run copy:index",
-    "copy:assets": "cpx \"src/assets/**/*.{css,jpeg,png}\" dist/public/assets",
+    "copy:assets": "cpx \"src/assets/**/*.{css,jpeg,png,svg}\" dist/public/assets",
     "copy:index": "cpx \"src/**/index.{js,html}\" dist",
     "dev": "npm run compile && npm run sass:expanded && nodemon --inspect dist/server/index.js",
     "fix": "./node_modules/.bin/eslint \"src/**/*.{js,jsx}\" --fix",
