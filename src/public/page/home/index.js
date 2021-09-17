@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 class Home extends React.Component {
 
@@ -27,4 +29,14 @@ class Home extends React.Component {
 
 }
 
-export default Home
+Home.propTypes = {
+	default_value: PropTypes.bool
+}
+
+const mapStateToProps = state => {
+	return {
+		default_value: state.home.default_value
+	}
+}
+
+export default connect(mapStateToProps)(Home)
