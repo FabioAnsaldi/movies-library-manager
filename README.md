@@ -23,6 +23,8 @@ The purpose of this project is to manage a well-structured an online portfolios,
 The actual version is:
 > 1.0.0
 
+This application version works with Node `v10.0.0` or higher. 
+
 #### How to get it ####
 
 First fo all, clone the repository project on `https://github.com/FabioAnsaldi/movies-library-manager` into your local store:

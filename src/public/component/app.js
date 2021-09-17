@@ -4,6 +4,7 @@ import Header from './header'
 import Main from './main'
 import Footer from './footer'
 import Home from '../page/home'
+import routes from '../../routes'
 
 class App extends React.Component {
 
@@ -11,7 +12,7 @@ class App extends React.Component {
 
 		return (
 			<HashRouter basename="/">
-				<Header />
+				<Header routes={routes} />
 				<Main>
 					<Switch>
 						{/* <Route path="/settings" component={Settings} exact /> */}
