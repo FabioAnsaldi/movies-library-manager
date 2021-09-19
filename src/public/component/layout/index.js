@@ -6,6 +6,7 @@ import Header from '../header'
 import Main from '../main'
 import Footer from '../footer'
 import Home from '../../page/home'
+import About from '../../page/about'
 
 class Layout extends React.Component {
 
@@ -21,6 +22,7 @@ class Layout extends React.Component {
 				<Main>
 					<Switch>
 						{/* <Route path="/settings" component={Settings} exact /> */}
+						<Route path="/about" component={About} />
 						<Route path="/" component={Home} />
 					</Switch>
 				</Main>

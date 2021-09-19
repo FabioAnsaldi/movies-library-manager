@@ -2,21 +2,21 @@ const UPDATE_LINKS = 'UPDATE_LINKS'
 const TOGGLE_MENU = 'TOGGLE_MENU'
 
 const initialState = {
-    links: [],
-    menuOpen: false
+	links: [],
+	menuOpen: false
 }
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-        case UPDATE_LINKS: return {
-            ...state,
-            links: action.value
-        }
-        case TOGGLE_MENU: return {
-            ...state,
-            menuOpen: action.value
-        }
-        default: return state
+	case UPDATE_LINKS: return {
+		...state,
+		links: action.value
+	}
+	case TOGGLE_MENU: return {
+		...state,
+		menuOpen: action.value
+	}
+	default: return state
 	}
 }
 

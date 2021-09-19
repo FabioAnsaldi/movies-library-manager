@@ -6,11 +6,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-        case TOGGLE_NAVIGATOR: return {
-            ...state,
-            navigatorOpen: action.value
-        }
-        default: return state
+	case TOGGLE_NAVIGATOR: return {
+		...state,
+		navigatorOpen: action.value
+	}
+	default: return state
 	}
 }
 
