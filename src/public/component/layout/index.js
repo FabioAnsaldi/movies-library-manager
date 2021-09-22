@@ -7,12 +7,25 @@ import Main from '../main'
 import Footer from '../footer'
 import Home from '../../page/home'
 import About from '../../page/about'
+import { setEnvironment } from './reducer'
 
 class Layout extends React.Component {
 
 	constructor(props) {
 		super(props)
 	}
+
+	componentWillMount() {
+		fetch('/3/environment', {
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		}).then(function(response) {
+			return response.json();
+		  }).then(response => {
+			this.props.dispatch(setEnvironment(response))
+		})
+    }
 
 	render() {
         
@@ -34,12 +47,16 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-	page: PropTypes.object.isRequired
+	routes: PropTypes.array.isRequired,
+	page: PropTypes.object.isRequired,
+	env: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => {
 	return {
-		page: state.layout.page
+		routes: state.layout.routes,
+		page: state.layout.page,
+		env: state.layout.env
 	}
 }
 

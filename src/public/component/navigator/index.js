@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { toggleNavigator as localToggleNavigator } from './reducer'
-import { toggleNavigator as headerToggleNavigator } from '../header/reducer'
+import { toggleNavigator } from './reducer'
 
 class Navigator extends React.Component {
 
@@ -17,8 +16,7 @@ class Navigator extends React.Component {
 	}
 
 	navigatorToggle() {
-		this.props.dispatch(localToggleNavigator(!this.props.menuOpen))
-		this.props.dispatch(headerToggleNavigator(!this.props.menuOpen))
+		this.props.dispatch(toggleNavigator(!this.props.menuOpen))
 	}
 
 	render() {

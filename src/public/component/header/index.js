@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import classnames from 'classnames'
 import Navigator from	'../navigator'
 
 class Header extends React.Component {
@@ -12,7 +13,7 @@ class Header extends React.Component {
 	render() {
         
 		return (
-			<header className="padding-2 bgColor-primary">
+			<header className={classnames('padding-2', { 'bgColor-primary': !this.props.navigatorOpen, 'bgColor-secondary': this.props.navigatorOpen })}>
 				<Navigator classes="header-navigator" />
 			</header>
 		)
@@ -27,7 +28,7 @@ Header.propTypes = {
 
 const mapStateToProps = state => {
 	return {
-		navigatorOpen: state.header.navigatorOpen,
+		navigatorOpen: state.navigator.menuOpen,
 		routes: state.layout.routes
 	}
 }

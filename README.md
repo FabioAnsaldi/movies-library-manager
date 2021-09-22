@@ -23,7 +23,7 @@ The purpose of this project is to manage a well-structured an online portfolios,
 The actual version is:
 > 1.0.0
 
-This application version works with Node `v10.0.0` or higher. 
+This application version works with Node `v12.20.0` or higher. 
 
 #### How to get it ####
 
@@ -51,6 +51,8 @@ After that you can run the environment mode with a specific setup.
 > APPLICATION_PORT            : Local application PORT
 
 > APPLICATION_API_CONTEXT     : Application APIs context
+
+> APPLICATION_MOVIES_LIST        : Application Movies list
 
 > APPLICATION_VERSION         : Application version
 

@@ -13,7 +13,7 @@ class About extends React.Component {
 		return (
 			<>
 				<h1>About</h1>
-                <p>This is the About page</p>
+				<p>This is the About page</p>
 			</>
 		)
 	}

@@ -1,24 +1,24 @@
-const GET_MOVIE_LIST = 'GET_MOVIE_LIST'
+const CHANGE_TEXT = 'CHANGE_TEXT'
 
 const initialState = {
-	movieList: {}
+	text: ''
 }
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-	case GET_MOVIE_LIST: return {
+	case CHANGE_TEXT: return {
 		...state,
-		movieList: action.value
+		text: action.value
 	}
 	default: return state
 	}
 }
 
-export const getMovieList = value => {
+export const changeText = value => {
 	return {
-		type: GET_MOVIE_LIST,
+		type: CHANGE_TEXT,
 		value: value,
-		info: 'Get movie list'
+		info: 'Search text changed'
 	}
 }
 

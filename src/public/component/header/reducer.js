@@ -1,4 +1,4 @@
-const TOGGLE_NAVIGATOR = 'TOGGLE_NAVIGATOR'
+const DEFAULT_ACTION = 'DEFAULT_ACTION'
 
 const initialState = {
 	navigatorOpen: false
@@ -6,19 +6,19 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-	case TOGGLE_NAVIGATOR: return {
-		...state,
-		navigatorOpen: action.value
-	}
+		case DEFAULT_ACTION: return {
+			...state,
+			default_value: action.value
+		}
 	default: return state
 	}
 }
 
-export const toggleNavigator = value => {
+export const defaultAction = value => {
 	return {
-		type: TOGGLE_NAVIGATOR,
+		type: DEFAULT_ACTION,
 		value: value,
-		info: 'Navigator hambburger clicked'
+		info: 'Default action'
 	}
 }
 

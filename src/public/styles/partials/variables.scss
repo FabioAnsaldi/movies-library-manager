@@ -70,7 +70,8 @@ $gutter: (
   "2": 16px,
   "3": 24px,
   "4": 32px,
-  "5": 40px
+  "5": 40px,
+  "6": 48px
 ) !default;
 
 //-- Gutter:end --//
@@ -97,7 +98,7 @@ $overflows: (
 $heights: (
   "auto": auto,
   "inherit": "inherit",
-  "full": #{"100%; height: -moz-available; height: stretch;"},
+  "full": #{"100%; height: -moz-available; height: stretch"},
 ) !default;
 
 //-- Heights:end --//
@@ -112,7 +113,7 @@ $widths: (
   "auto": auto,
   "inherit": "inherit",
   "half": 50%,
-  "full": #{"100%; width: -moz-available; width: stretch;"},
+  "full": #{"100%; width: -moz-available; width: stretch"},
   "0": 0,
   "1": 8px,
   "2": 16px,
@@ -130,10 +131,10 @@ $widths: (
 //-- Positions:start --//
 
 $positions: (
-  "static": #{"static; left: 0; right: 0; margin: auto;"},
-  "absolute": #{"absolute; left: 0; right: 0; margin: auto;"},
-  "relative": #{"relative; left: 0; right: 0; margin: auto;"},
-  "fixed": #{"fixed; left: 0; right: 0; margin: auto;"},
+  "static": #{"static; left: 0; right: 0; margin: auto"},
+  "absolute": #{"absolute; left: 0; right: 0; margin: auto"},
+  "relative": #{"relative; left: 0; right: 0; margin: auto"},
+  "fixed": #{"fixed; left: 0; right: 0; margin: auto"},
 ) !default;
 
 //-- Positions:end --//
