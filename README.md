@@ -4,6 +4,7 @@ Tiny movies library manager created by using React framework
 ## Table of Contents ##
 
 * [Quick summary](#quick-summary)
+    -   [Goal](#goal)
     -   [Version](#version)
     -   [How to get it](#howtogetit)
 * [Summary of set up](#summary-of-set-up)
@@ -17,6 +18,14 @@ Tiny movies library manager created by using React framework
 ### Quick summary ###
 
 The purpose of this project is to manage a well-structured an online portfolios, a movies library application by using Web technologies like JavaScript language and HTML/CSS styles code.
+
+#### Goal ####
+I would like to create a simple project where:
+
+> I do not use Webpack or Grunt to manage modules and libraries, I will manage everything with simple NPM run task.
+
+> I do not use Bootstrap or Material-UI style libraries, I will create the entire collection classes 
+
 
 #### Version ####
 
